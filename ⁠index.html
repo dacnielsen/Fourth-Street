@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fourth Street Publishing | Independent Press & Editorial Services</title>
+    <title>Fourth Street Publishing</title>
     <style>
         :root {
-            --bg-color: #fdfbf7;
-            --text-color: #2b2b2b;
-            --accent-color: #8c2d19;
-            --secondary-bg: #f4efe6;
-            --border-color: #e2dacd;
-            --font-serif: "Georgia", "Times New Roman", serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --bg-color: #fcfcfc;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -22,180 +22,122 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-serif);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
             line-height: 1.6;
-            padding: 0;
-            margin: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 20px;
         }
 
         header {
             text-align: center;
-            padding: 3rem 1.5rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-color);
+            padding: 60px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 2px solid var(--border-color);
         }
 
         header h1 {
-            font-size: 2.2rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            font-weight: normal;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         header p.subtitle {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #666;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 1rem;
-            background-color: var(--secondary-bg);
-            border-bottom: 1px solid var(--border-color);
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        nav a:hover {
+            font-size: 1.25rem;
             color: var(--accent-color);
+            font-style: italic;
+            font-family: Georgia, serif;
         }
 
-        .container {
-            max-width: 800px;
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: var(--light-text);
+            max-width: 700px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem;
         }
 
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.5rem;
-            font-weight: normal;
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .book-card {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            background: var(--secondary-bg);
-            padding: 1.5rem;
-            border-radius: 4px;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        @media (min-width: 600px) {
-            .book-card {
-                flex-direction: row;
-            }
+        .book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
         }
 
-        .book-cover {
-            width: 100%;
-            max-width: 180px;
-            height: 260px;
-            background-color: #d8cfc4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            margin: 0 auto;
+        .book-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
         }
 
-        .book-info {
-            flex: 1;
-        }
-
-        .book-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .book-author {
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 0.6rem 1.2rem;
-            text-decoration: none;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            border-radius: 3px;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .service-item {
-            border: 1px solid var(--border-color);
-            padding: 1.2rem;
-            background: #fff;
-        }
-
-        .service-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .book-card .author {
+            font-weight: 600;
             color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .service-item p {
+        .book-card p {
             font-size: 0.95rem;
-            color: #444;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #f3e8ff;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 1.5rem;
+            margin-top: 60px;
+            padding: 30px 20px;
             border-top: 1px solid var(--border-color);
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: #777;
-            background-color: var(--secondary-bg);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -203,71 +145,41 @@
 
     <header>
         <h1>Fourth Street Publishing</h1>
-        <p class="subtitle">Independent Press & Editorial Services</p>
+        <p class="subtitle">Independent Literary & Creative Works</p>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#books">Catalog</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        
-        <section id="about">
-            <h2>About the Press</h2>
-            <p>Fourth Street Publishing is an independent imprint and editorial consultancy dedicated to literary fiction, localized historical narrative, and high-impact corporate communications. Founded with an emphasis on authentic craftsmanship, structural precision, and narrative clarity, we partner with authors, institutions, and organizations to bring refined works to print and digital form.</p>
+    <main>
+        <section class="intro-section">
+            <p>Welcome to Fourth Street Publishing. We are an independent press dedicated to thoughtful storytelling, fine editorial craft, and distinct creative voices.</p>
         </section>
 
-        <section id="books">
-            <h2>Current Releases</h2>
-            
-            <div class="book-card">
-                <div class="book-cover">
-                    [ Cover Image ]
+        <section>
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Featured Publications</h2>
+            <div class="catalog-grid">
+                
+                <!-- Sample Book Card 1 -->
+                <div class="book-card">
+                    <span class="badge">Coming Soon</span>
+                    <h3 style="margin-top: 10px;">Title Placeholder One</h3>
+                    <div class="author">Author Name</div>
+                    <p>A short overview or back-cover description of your featured publication goes right here.</p>
                 </div>
-                <div class="book-info">
-                    <h3 class="book-title">Featured Title Name</h3>
-                    <p class="book-author">By Author Name</p>
-                    <p>A short overview or back-cover synopsis introducing the narrative, themes, and setting of the book.</p>
-                    <a href="#" class="btn">Order Copy</a>
+
+                <!-- Sample Book Card 2 -->
+                <div class="book-card">
+                    <span class="badge">New Release</span>
+                    <h3 style="margin-top: 10px;">Title Placeholder Two</h3>
+                    <div class="author">Author Name</div>
+                    <p>Add details about your secondary publication, collection, or current project here.</p>
                 </div>
+
             </div>
         </section>
-
-        <section id="services">
-            <h2>Editorial & Consultancy Services</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <h3>Manuscript Evaluation</h3>
-                    <p>Comprehensive structural critiques, developmental feedback, and pacing analysis for full-length manuscripts and prose collections.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Copyediting & Proofreading</h3>
-                    <p>Rigorous line-by-line editorial refinement focused on clarity, syntax, consistency, and style integrity.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Communications Strategy</h3>
-                    <p>Custom publication design, briefing papers, and corporate narrative strategy for non-profits and professional institutions.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Publishing Guidance</h3>
-                    <p>End-to-end advisement on print-on-demand setup, distribution logistics, and digital publication management.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>For manuscript inquiries, editorial consultations, or corporate strategy projects, contact us at:</p>
-            <p style="margin-top: 0.5rem; font-weight: bold; font-family: var(--font-sans);">info@fourthstreetpublishing.ca</p>
-        </section>
-
-    </div>
+    </main>
 
     <footer>
         <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+        <p style="margin-top: 8px;">Inquiries & Submissions: <strong>editor [at] fourthstreetpublishing [dot] ca</strong></p>
     </footer>
 
 </body>
