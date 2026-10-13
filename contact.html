@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Street Publishing | Contact</title>
+    <style>
+        :root {
+            --primary-navy: #14223d;
+            --navy-light: #2c3e50;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d48;
+            --bg-cream: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* HEADER WITH BACKGROUND OVERLAY */
+        header {
+            position: relative;
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(rgba(20, 34, 61, 0.88), rgba(20, 34, 61, 0.94)), url('images/street-lamp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            font-style: italic;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--navy-light);
+            text-align: center;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        .section-header {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .intro-text {
+            font-size: 1.02rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* TWO COLUMN LAYOUT FOR FORM & INFO */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CONTACT FORM */
+        .contact-form-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: #fafbfc;
+            color: var(--text-dark);
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background-color: #ffffff;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--navy-light);
+        }
+
+        /* SIDEBAR / DETAILS */
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 3px solid var(--primary-navy);
+            border-radius: 6px;
+            padding: 24px;
+        }
+
+        .info-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card strong {
+            color: var(--text-dark);
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND HEADER -->
+    <header>
+        <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v3M12 19v3M8 9h8M9 5h6l1 4H8l1-4zM8 9l1 8h6l1-8M10 17v2M14 17v2"/>
+            <circle cx="12" cy="13" r="1.5" fill="#c5a059"/>
+        </svg>
+        <h1>Fourth Street Publishing</h1>
+        <p class="subtitle">Plain-Language Communication, Editorial Consulting & Literary Works</p>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="consulting.html">Consulting Services</a>
+        <a href="media.html">Media & Booklets</a>
+        <a href="books.html">Books & Authors</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <main>
+
+        <h2 class="section-header">Contact Us</h2>
+        <p class="intro-text">
+            Whether you are seeking plain-language editorial consulting for institutional documentation or manuscript development for an upcoming publication, we welcome your inquiry.
+        </p>
+
+        <div class="contact-grid">
+            
+            <!-- CONTACT FORM -->
+            <div class="contact-form-card">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Inquiry Type</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="consulting">Plain-Language Consulting</option>
+                            <option value="manuscript">Manuscript Review & Editorial Vetting</option>
+                            <option value="publishing">Publishing & Rights Inquiry</option>
+                            <option value="other">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Brief / Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Please share details about your project, timeline, or objectives..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+            </div>
+
+            <!-- SIDEBAR INFO -->
+            <div class="contact-sidebar">
+                <div class="info-card">
+                    <h4>Direct Contact</h4>
+                    <p><strong>Email:</strong><br> contact@fourthstreetpublishing.com</p>
+                    <p><strong>Location:</strong><br> Ontario, Canada</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Consulting Inquiries</h4>
+                    <p>Initial consultations typically cover document scope, target audience requirements, structural review objectives, and estimated project schedules.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Street Publishing | Books & Authors</title>
+    <style>
+        :root {
+            --primary-navy: #14223d;
+            --navy-light: #2c3e50;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d48;
+            --bg-cream: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* HEADER WITH BACKGROUND OVERLAY */
+        header {
+            position: relative;
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(rgba(20, 34, 61, 0.88), rgba(20, 34, 61, 0.94)), url('images/street-lamp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            font-style: italic;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--navy-light);
+            text-align: center;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        .section-header {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            font-family: Georgia, serif;
+        }
+
+        /* PROVENANCE PHILOSOPHY BANNER */
+        .provenance-banner {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 45px;
+        }
+
+        .provenance-banner h3 {
+            font-family: Georgia, serif;
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .provenance-banner p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        /* STACKED BADGE LAYOUT */
+        .provenance-badges-explain {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge-row .badge-tag {
+            margin-bottom: 0;
+            min-width: 170px;
+            text-align: center;
+        }
+
+        .badge-row span.badge-desc {
+            font-size: 0.90rem;
+            color: var(--text-dark);
+        }
+
+        /* BADGES */
+        .badge-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .badge-human {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+
+        .badge-studio {
+            background-color: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+        }
+
+        /* FEATURED RELEASE */
+        .featured-release {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-navy);
+            border-radius: 6px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-release {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cover-container {
+            text-align: center;
+        }
+
+        .cover-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background-color: #e2e8f0;
+            aspect-ratio: 2/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0 auto;
+        }
+
+        .featured-details h3 {
+            font-size: 1.6rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 4px;
+        }
+
+        .featured-details .author-tag {
+            font-size: 1.05rem;
+            color: var(--accent-gold-hover);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .featured-details p {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .buy-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-buy-primary {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-buy-primary:hover {
+            background-color: var(--navy-light);
+        }
+
+        .btn-buy-secondary {
+            background-color: transparent;
+            color: var(--primary-navy);
+            border: 1px solid var(--primary-navy);
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-buy-secondary:hover {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+        }
+
+        /* CATALOGUE GRID */
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .book-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .thumb-image {
+            width: 90px;
+            height: 135px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 4px;
+        }
+
+        .card-details h4 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 2px;
+        }
+
+        .card-details .byline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .card-details p {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .card-links a {
+            font-size: 0.82rem;
+            color: var(--accent-gold-hover);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        .card-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* AUTHOR ROSTER */
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .author-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 600px) {
+            .author-card {
+                flex-direction: column;
+            }
+        }
+
+        .author-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .author-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .author-socials {
+            display: flex;
+            gap: 14px;
+        }
+
+        .author-socials a {
+            font-size: 0.85rem;
+            color: var(--accent-gold-hover);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .author-socials a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND HEADER -->
+    <header>
+        <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v3M12 19v3M8 9h8M9 5h6l1 4H8l1-4zM8 9l1 8h6l1-8M10 17v2M14 17v2"/>
+            <circle cx="12" cy="13" r="1.5" fill="#c5a059"/>
+        </svg>
+        <h1>Fourth Street Publishing</h1>
+        <p class="subtitle">Plain-Language Communication, Editorial Consulting & Literary Works</p>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="consulting.html">Consulting Services</a>
+        <a href="media.html">Media & Booklets</a>
+        <a href="books.html" class="active">Books & Authors</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- PROVENANCE / STUDIO PHILOSOPHY SECTION -->
+        <div class="provenance-banner">
+            <h3>Publishing Provenance & The Studio Model</h3>
+            <p>Much like classical sculptors who directed bustling studios, we believe human vision and editorial oversight define true literature. We celebrate both 100% human-crafted narrative art and human-guided, AI-assisted workshop literature. Complete transparency is embedded in every work we publish.</p>
+            
+            <div class="provenance-badges-explain">
+                <div class="badge-row">
+                    <span class="badge-tag badge-human">Verified Human Creation</span>
+                    <span class="badge-desc">100% human-written, edited, and rendered.</span>
+                </div>
+                
+                <div class="badge-row">
+                    <span class="badge-tag badge-studio">Studio Edition</span>
+                    <span class="badge-desc">Human-conceived and directed with AI-assisted drafting or synthesis.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURED RELEASE -->
+        <h2 class="section-header">Featured Release</h2>
+        <div class="featured-release">
+            <div class="cover-container">
+                <div class="cover-image">
+                    <span>[Book Cover Image]</span>
+                </div>
+            </div>
+            <div class="featured-details">
+                <span class="badge-tag badge-human">Verified Human Creation</span>
+                <h3>Title of Featured Work</h3>
+                <div class="author-tag">By Author Name</div>
+                <p>A compelling summary or editorial description of the book. Highlight key narrative themes, target readers, and critical praise or awards if applicable.</p>
+                <div class="buy-group">
+                    <a href="https://amazon.com" target="_blank" class="btn-buy-primary" rel="noopener">Buy Digital on Amazon</a>
+                    <a href="contact.html" class="btn-buy-secondary">Order Signed Copy ($25 CAD)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BACKLIST CATALOGUE -->
+        <h2 class="section-header">Catalogue & Backlist</h2>
+        <div class="catalogue-grid">
+
+            <!-- SAMPLE CARD 1: VERIFIED HUMAN -->
+            <div class="book-card">
+                <div class="thumb-image">Cover Image</div>
+                <div class="card-details">
+                    <span class="badge-tag badge-human">Verified Human</span>
+                    <h4>Human-Authored Title</h4>
+                    <div class="byline">By Author Name • 2025</div>
+                    <p>Short description of this traditional work, written and edited entirely by human hands.</p>
+                    <div class="card-links">
+                        <a href="https://amazon.com" target="_blank" rel="noopener">Amazon Kindle</a>
+                        <a href="contact.html">Direct Order</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAMPLE CARD 2: STUDIO EDITION -->
+            <div class="book-card">
+                <div class="thumb-image">Cover Image</div>
+                <div class="card-details">
+                    <span class="badge-tag badge-studio">Studio Edition</span>
+                    <h4>Studio Co-Created Title</h4>
+                    <div class="byline">Conceived by Author Name • 2026</div>
+                    <p>Short description highlighting an experimental or tool-assisted narrative guided by human vision.</p>
+                    <div class="card-links">
+                        <a href="https://amazon.com" target="_blank" rel="noopener">Amazon Kindle</a>
+                        <a href="contact.html">Direct Order</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AUTHORS ROSTER -->
+        <h2 class="section-header">Authors & Editors</h2>
+        <div class="author-section">
+
+            <div class="author-card">
+                <div class="author-avatar">Photo</div>
+                <div class="author-info">
+                    <h3>Author Name</h3>
+                    <p>A short bio highlighting their background, academic expertise, writing focus, and published contributions under Fourth Street Publishing.</p>
+                    <div class="author-socials">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener">X / Twitter</a>
+                        <a href="#" target="_blank" rel="noopener">Personal Website</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

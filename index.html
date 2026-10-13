@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Street Publishing | Home</title>
+    <style>
+        :root {
+            --primary-navy: #14223d;
+            --navy-light: #2c3e50;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d48;
+            --bg-cream: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* HEADER WITH STREET LAMP BACKGROUND IMAGE OVERLAY */
+        header {
+            position: relative;
+            background-color: var(--primary-navy);
+            /* Gradient overlay over street lamp photo */
+            background-image: linear-gradient(rgba(20, 34, 61, 0.88), rgba(20, 34, 61, 0.94)), url('images/street-lamp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            font-style: italic;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--navy-light);
+            text-align: center;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        section {
+            margin-bottom: 55px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+            font-family: Georgia, serif;
+        }
+
+        .hero-intro {
+            font-size: 1.18rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtext {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* GRID CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-navy);
+            border-radius: 6px;
+            padding: 24px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-family: Georgia, serif;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* FEATURED BOOK CARD */
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 26px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        @media (min-width: 640px) {
+            .book-card {
+                flex-direction: row;
+            }
+        }
+
+        .book-cover {
+            width: 130px;
+            height: 190px;
+            background-color: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            border-radius: 4px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .book-info {
+            flex-grow: 1;
+        }
+
+        .book-title {
+            font-size: 1.4rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 4px;
+        }
+
+        .book-author {
+            color: var(--accent-gold-hover);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* EDITORIAL INTEGRITY CALLOUT */
+        .integrity-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--accent-gold);
+            padding: 22px;
+            margin-top: 25px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .integrity-box h4 {
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .integrity-box p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.65;
+        }
+
+        /* BUTTONS & CALL TO ACTION BANNER */
+        .cta-banner {
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-light) 100%);
+            color: #ffffff;
+            padding: 36px 24px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 40px;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .cta-banner h3 {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-banner p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold-hover);
+        }
+
+        .btn-navy {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+        }
+
+        .btn-navy:hover {
+            background-color: var(--navy-light);
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND HEADER WITH LAMP LOGO AND BACKGROUND IMAGE -->
+    <header>
+        <!-- Minimalist Street Lamp SVG Icon -->
+        <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v3M12 19v3M8 9h8M9 5h6l1 4H8l1-4zM8 9l1 8h6l1-8M10 17v2M14 17v2"/>
+            <circle cx="12" cy="13" r="1.5" fill="#c5a059"/>
+        </svg>
+        <h1>Fourth Street Publishing</h1>
+        <p class="subtitle">Plain-Language Communication, Editorial Consulting & Literary Works</p>
+    </header>
+
+    <!-- MULTI-PAGE NAVIGATION -->
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="consulting.html">Consulting Services</a>
+        <a href="media.html">Media & Booklets</a>
+        <a href="books.html">Books & Authors</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <!-- WELCOME & OVERVIEW SECTION -->
+        <section>
+            <h2>Clarity in Communication, Craft in Publishing</h2>
+            <p class="hero-intro">Fourth Street Publishing is an independent editorial consultancy and private imprint dedicated to plain-language communication, structural editing, and curated narrative storytelling.</p>
+            <p class="hero-subtext">We help bridge the gap between technical, complex topics and everyday readers, crafting accessible field guides, refining institutional documentation, and bringing authentic human narrative to print.</p>
+        </section>
+
+        <!-- SERVICES PORTAL PREVIEW -->
+        <section>
+            <h2>Services Overview</h2>
+            <div class="grid">
+                <div class="card">
+                    <div>
+                        <h3>Plain-Language & Trades Communication</h3>
+                        <p>Clear, accessible reference guides and explanatory pamphlets designed for technical fields, skilled trades, and community organizations—free of unnecessary jargon.</p>
+                    </div>
+                    <a href="consulting.html" class="btn">Explore Consulting</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Structural & Editorial Consulting</h3>
+                        <p>In-depth manuscript evaluations, line-by-line editorial refinement, and organizational narrative strategy for non-fiction, academic work, and prose.</p>
+                    </div>
+                    <a href="consulting.html" class="btn">Explore Consulting</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Institutional & Organizational Messaging</h3>
+                        <p>Tailored editorial reviews, communication frameworks, and publication updates designed for public institutions and professional associations.</p>
+                    </div>
+                    <a href="consulting.html" class="btn">Explore Consulting</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKLETS & MEDIA PREVIEW SECTION -->
+        <section>
+            <h2>Media & Reference Booklets</h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">We produce downloadable reference pamphlets, style guides, and practical communication tools formatted for immediate workplace and personal application.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div>
+                        <h3>Plain-Language Trade Pamphlet</h3>
+                        <p>A concise guide on converting technical jargon into clear, practical instructions for field and workplace teams.</p>
+                    </div>
+                    <!-- Direct download path protected with noindex attributes -->
+                    <a href="assets/docs/plain-language-guide.pdf" download class="btn btn-navy" rel="nofollow noindex">Download PDF</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Editorial Integrity & Workflow Guide</h3>
+                        <p>An overview of balancing modern editorial AI tools with authentic human craftsmanship and structural oversight.</p>
+                    </div>
+                    <a href="media.html" class="btn">View All Media</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED CATALOG & EDITORIAL INTEGRITY -->
+        <section>
+            <h2>Featured Release & Catalog</h2>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    [ Cover Placeholder ]
+                </div>
+                <div class="book-info">
+                    <span class="badge">Featured Selection</span>
+                    <h3 class="book-title">Featured Literary Selection</h3>
+                    <p class="book-author">By Author Name</p>
+                    <p>A short overview introducing the setting, themes, and narrative atmosphere of works published through Fourth Street Publishing.</p>
+                    <a href="books.html" class="btn" style="margin-top: 14px;">Explore Full Catalog & Authors</a>
+                </div>
+            </div>
+
+            <div class="integrity-box">
+                <h4>Editorial Integrity & Modern Tools</h4>
+                <p>We celebrate original human craftsmanship and local storytelling. We also assist authors in navigating modern editing tools and AI-assisted structural workflows—providing expert vetting and editorial review to ensure every manuscript preserves genuine voice, stylistic nuance, and human integrity.</p>
+            </div>
+        </section>
+
+        <!-- QUICK CONTACT TEASER -->
+        <div class="cta-banner">
+            <h3>Start a Communication or Editorial Project</h3>
+            <p>Have a manuscript, trade booklet, or institutional publication to discuss?</p>
+            <a href="contact.html" class="btn">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

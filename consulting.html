@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Street Publishing | Consulting & Corporate Services</title>
+    <style>
+        :root {
+            --primary-navy: #14223d;
+            --navy-light: #2c3e50;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d48;
+            --bg-cream: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* HEADER WITH STREET LAMP BACKGROUND OVERLAY */
+        header {
+            position: relative;
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(rgba(20, 34, 61, 0.88), rgba(20, 34, 61, 0.94)), url('images/street-lamp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            font-style: italic;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--navy-light);
+            text-align: center;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        section {
+            margin-bottom: 55px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+            font-family: Georgia, serif;
+        }
+
+        .intro-text {
+            font-size: 1.12rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 28px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card h3 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            font-family: Georgia, serif;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-dark);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: auto;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 14px;
+        }
+
+        .service-card ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .service-card ul li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* PAMPHLET BRIDGE BOX */
+        .bridge-box {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 26px;
+            margin-top: 35px;
+        }
+
+        .bridge-box h3 {
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .bridge-box p {
+            color: var(--text-dark);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* PROCESS SECTION */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .step-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-navy);
+            color: var(--accent-gold);
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.1rem;
+        }
+
+        .step-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* SCOPING NOTICE BOX */
+        .scoping-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-navy);
+            padding: 20px 24px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+
+        .scoping-box h4 {
+            color: var(--primary-navy);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            font-family: Georgia, serif;
+        }
+
+        .scoping-box p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-light) 100%);
+            color: #ffffff;
+            padding: 36px 24px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 40px;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .cta-banner h3 {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-banner p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--primary-navy);
+            margin-top: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND HEADER WITH LAMP LOGO AND BACKGROUND IMAGE -->
+    <header>
+        <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v3M12 19v3M8 9h8M9 5h6l1 4H8l1-4zM8 9l1 8h6l1-8M10 17v2M14 17v2"/>
+            <circle cx="12" cy="13" r="1.5" fill="#c5a059"/>
+        </svg>
+        <h1>Fourth Street Publishing</h1>
+        <p class="subtitle">Plain-Language Communication, Editorial Consulting & Literary Works</p>
+    </header>
+
+    <!-- MULTI-PAGE NAVIGATION -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="consulting.html" class="active">Consulting Services</a>
+        <a href="media.html">Media & Booklets</a>
+        <a href="books.html">Books & Authors</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <!-- SERVICES OVERVIEW -->
+        <section>
+            <h2>Communication & Corporate Consulting</h2>
+            <p class="intro-text">We help organizations, technical sectors, and individual authors bridge critical communication gaps. Whether delivering tailored workplace training or refining technical documentation, our focus is bringing clarity, structural discipline, and practical application to everyday communication.</p>
+
+            <div class="services-grid">
+                <!-- SERVICE 1 -->
+                <div class="service-card">
+                    <div>
+                        <h3>Corporate & Organizational Training</h3>
+                        <p>Custom workplace workshops designed to strengthen essential communication capabilities—transforming technical ideas into clear presentations, effective problem-solving strategies, and constructive workplace dialogue.</p>
+                    </div>
+                    <ul>
+                        <li>Plain-Language Writing for Business & Trades</li>
+                        <li>High-Impact Workplace Presentations & Storytelling</li>
+                        <li>Communication as Conflict Resolution & Problem Solving</li>
+                        <li>Critical Thinking & Institutional Messaging</li>
+                    </ul>
+                </div>
+
+                <!-- SERVICE 2 -->
+                <div class="service-card">
+                    <div>
+                        <h3>Plain-Language & Technical Documentation</h3>
+                        <p>Streamlining complex operational guides, policy frameworks, and technical manuals so that critical information is quickly understood and practical in field and office environments.</p>
+                    </div>
+                    <ul>
+                        <li>Standard Operating Procedures & Safety Guides</li>
+                        <li>Technical & Trade Communication Overhauls</li>
+                        <li>Policy Simplification & Compliance Documentation</li>
+                    </ul>
+                </div>
+
+                <!-- SERVICE 3 -->
+                <div class="service-card">
+                    <div>
+                        <h3>Manuscript & Structural Editorial Review</h3>
+                        <p>Providing comprehensive structural feedback and line-by-line editing for book manuscripts, essays, and regional non-fiction—focusing on narrative arc, flow, and voice.</p>
+                    </div>
+                    <ul>
+                        <li>Developmental & Structural Manuscript Review</li>
+                        <li>Line Editing & Tone Refinement</li>
+                        <li>Non-Fiction, Memoir & Regional Prose</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PAMPHLETS AS TRAINING BRIDGES -->
+            <div class="bridge-box">
+                <h3>Reference Pamphlets as Workplace Tools</h3>
+                <p>Our downloadable reference booklets and field guides serve as direct examples of our training philosophy. Designed as concise, practical tools for teams and leaders, these materials demonstrate how complex topics can be translated into straightforward, actionable reference guides.</p>
+                <a href="media.html" class="btn btn-outline">Explore Downloader Pamphlets & Media</a>
+            </div>
+        </section>
+
+        <!-- WORKING PROCESS -->
+        <section>
+            <h2>How We Partner With You</h2>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Needs Assessment</h4>
+                    <p>We review your team’s communication goals, document requirements, or training objectives.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Tailored Design</h4>
+                    <p>We structure customized workshop modules or develop targeted plain-language document edits.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Delivery & Review</h4>
+                    <p>We conduct interactive training sessions or deliver publication-ready documentation packages.</p>
+                </div>
+            </div>
+
+            <!-- SCOPING & RATES NOTICE -->
+            <div class="scoping-box">
+                <h4>Custom Project & Workshop Scoping</h4>
+                <p>Every corporate workshop and editorial project carries unique scope, audience needs, and delivery requirements. Engagements are tailored following a brief initial consultation. Sample training outlines and document reviews are available upon request.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT CTA -->
+        <div class="cta-banner">
+            <h3>Schedule a Training Session or Document Review</h3>
+            <p>Reach out today to discuss customized corporate workshops or plain-language consulting.</p>
+            <a href="contact.html" class="btn">Request a Consultation</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

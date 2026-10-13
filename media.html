@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Street Publishing | Media & Publications</title>
+    <style>
+        :root {
+            --primary-navy: #14223d;
+            --navy-light: #2c3e50;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d48;
+            --bg-cream: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #5a6578;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* HEADER WITH STREET LAMP BACKGROUND OVERLAY */
+        header {
+            position: relative;
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(rgba(20, 34, 61, 0.88), rgba(20, 34, 61, 0.94)), url('images/street-lamp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        header p.subtitle {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            font-style: italic;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--navy-light);
+            text-align: center;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        .intro-section {
+            margin-bottom: 40px;
+        }
+
+        .intro-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            font-family: Georgia, serif;
+        }
+
+        .intro-text {
+            font-size: 1.12rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* TWO-COLUMN LAYOUT: SIDEBAR + CONTENT */
+        .media-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .media-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SIDEBAR NAVIGATION */
+        .sidebar {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            position: sticky;
+            top: 70px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.92rem;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-navy);
+        }
+
+        .sidebar-note {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* DOCUMENT LIST */
+        .doc-category {
+            margin-bottom: 45px;
+            scroll-margin-top: 90px;
+        }
+
+        .doc-category h3 {
+            font-size: 1.35rem;
+            color: var(--primary-navy);
+            font-family: Georgia, serif;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .doc-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-navy);
+            border-radius: 6px;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold-hover);
+            margin-bottom: 6px;
+        }
+
+        .doc-badge.status-coming {
+            color: #d97706;
+            background-color: #fef3c7;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .doc-card h4 {
+            color: var(--primary-navy);
+            font-size: 1.15rem;
+            font-family: Georgia, serif;
+            margin-bottom: 8px;
+        }
+
+        .doc-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .doc-action {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--navy-light);
+        }
+
+        .btn-disabled {
+            background-color: #cbd5e1;
+            color: #64748b;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background-color: var(--primary-navy);
+            background-image: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-light) 100%);
+            color: #ffffff;
+            padding: 36px 24px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 40px;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .cta-banner h3 {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-banner p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold-hover);
+        }
+
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--navy-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BRAND HEADER WITH LAMP LOGO AND BACKGROUND IMAGE -->
+    <header>
+        <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v3M12 19v3M8 9h8M9 5h6l1 4H8l1-4zM8 9l1 8h6l1-8M10 17v2M14 17v2"/>
+            <circle cx="12" cy="13" r="1.5" fill="#c5a059"/>
+        </svg>
+        <h1>Fourth Street Publishing</h1>
+        <p class="subtitle">Plain-Language Communication, Editorial Consulting & Literary Works</p>
+    </header>
+
+    <!-- MULTI-PAGE NAVIGATION -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="consulting.html">Consulting Services</a>
+        <a href="media.html" class="active">Media & Booklets</a>
+        <a href="books.html">Books & Authors</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <div class="intro-section">
+            <h2>Media, Pamphlets & Field Guides</h2>
+            <p class="intro-text">These reference materials and trade pamphlets serve as downloadable field resources for workplace teams, leaders, and writers. Designed for quick reference and immediate application, they demonstrate our structured approach to clear, functional communication.</p>
+        </div>
+
+        <div class="media-layout">
+            <!-- SIDEBAR NAVIGATION MENU -->
+            <aside class="sidebar">
+                <h3>Resource Library</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="#trade-pamphlets">Trade & Workplace Guides</a></li>
+                    <li><a href="#editorial-briefs">Editorial & Style Briefs</a></li>
+                    <li><a href="#toolkits">Worksheets & Toolkits</a></li>
+                </ul>
+                <div class="sidebar-note">
+                    <p><strong>Note:</strong> All materials are provided in PDF format. Additional custom training literature can be commissioned upon request.</p>
+                </div>
+            </aside>
+
+            <!-- MAIN DOCUMENT LISTING -->
+            <div class="content-area">
+
+                <!-- CATEGORY 1 -->
+                <div class="doc-category" id="trade-pamphlets">
+                    <h3>Trade & Workplace Field Guides</h3>
+                    <div class="doc-list">
+
+                        <div class="doc-card">
+                            <div class="doc-info">
+                                <span class="doc-badge">Reference Pamphlet • PDF</span>
+                                <h4>Plain-Language Trade Communication</h4>
+                                <p>A concise guide detailing strategies for translating technical terminology and complex operational procedures into clear, accessible workplace documentation.</p>
+                            </div>
+                            <div class="doc-action">
+                                <a href="assets/docs/plain-language-guide.pdf" download class="btn-download" rel="nofollow noindex">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <div class="doc-info">
+                                <span class="doc-badge status-coming">In Preparation</span>
+                                <h4>Workplace Communication & Conflict Resolution</h4>
+                                <p>A structured booklet focusing on clear presentation techniques, active listening, and constructive narrative strategies for resolving workplace challenges.</p>
+                            </div>
+                            <div class="doc-action">
+                                <a href="#" class="btn-download btn-disabled">Coming Soon</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2 -->
+                <div class="doc-category" id="editorial-briefs">
+                    <h3>Editorial & Style Briefs</h3>
+                    <div class="doc-list">
+
+                        <div class="doc-card">
+                            <div class="doc-info">
+                                <span class="doc-badge status-coming">In Preparation</span>
+                                <h4>Editorial Integrity & AI Vetting</h4>
+                                <p>An overview for authors and technical teams navigating modern digital tools while preserving authentic human voice and structural oversight.</p>
+                            </div>
+                            <div class="doc-action">
+                                <a href="#" class="btn-download btn-disabled">Coming Soon</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CATEGORY 3 -->
+                <div class="doc-category" id="toolkits">
+                    <h3>Worksheets & Handouts</h3>
+                    <div class="doc-list">
+
+                        <div class="doc-card">
+                            <div class="doc-info">
+                                <span class="doc-badge status-coming">In Preparation</span>
+                                <h4>Plain-Language Editing Checklist</h4>
+                                <p>A quick 1-page reference checklist for reviewing emails, reports, and standard operating procedures before publishing.</p>
+                            </div>
+                            <div class="doc-action">
+                                <a href="#" class="btn-download btn-disabled">Coming Soon</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CONTACT CTA -->
+        <div class="cta-banner">
+            <h3>Need Custom Reference Literature for Your Organization?</h3>
+            <p>We partner with technical teams and associations to author, edit, and design custom field literature.</p>
+            <a href="contact.html" class="btn">Inquire About Custom Publications</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Fourth Street Publishing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
